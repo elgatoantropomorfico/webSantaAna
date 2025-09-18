@@ -1,0 +1,203 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 1rem 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Carousel Background Styles */
+.slideBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.slideBackground.active {
+  opacity: 1;
+}
+
+.backgroundImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.calendarWrapper {
+  flex-shrink: 0;
+}
+
+.heroText {
+  text-align: left;
+  flex: 1;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+}
+
+.ctaButton {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e3a8a;
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  background: white;
+}
+
+/* Navigation Dots */
+.navigation {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 4;
+}
+
+.navDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navDot:hover,
+.navDot.activeDot {
+  background: white;
+  border-color: white;
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 4rem 1rem 2rem 1rem;
+  }
+  
+  .heroContent {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .contentContainer {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .heroText {
+    text-align: center;
+    flex: none;
+  }
+  
+  .heroStats {
+    justify-content: center;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablet and Desktop */
+@media (min-width: 769px) {
+  .heroTitle {
+    font-size: 4rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: 4.5rem;
+  }
+}

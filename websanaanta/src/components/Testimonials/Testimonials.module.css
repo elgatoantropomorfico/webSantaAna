@@ -1,0 +1,152 @@
+.testimonials {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #5a6c7d;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.testimonialCard {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  padding: 2.5rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  transition: all 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 45px rgba(102, 126, 234, 0.2);
+}
+
+.testimonialHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.avatarContainer {
+  flex-shrink: 0;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.guestInfo {
+  flex: 1;
+}
+
+.guestName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.3rem;
+}
+
+.guestLocation {
+  color: #5a6c7d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.starFilled {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+.starEmpty {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+}
+
+.comment {
+  color: #2c3e50;
+  line-height: 1.7;
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonialFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.date {
+  color: #5a6c7d;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .testimonialCard {
+    padding: 1.5rem;
+  }
+  
+  .testimonialHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .guestInfo {
+    text-align: center;
+  }
+  
+  .rating {
+    justify-content: center;
+  }
+}

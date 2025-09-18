@@ -1,0 +1,153 @@
+.attractions {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #5a6c7d;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.attractionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.attractionCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+}
+
+.attractionCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
+}
+
+.attractionIcon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+}
+
+.attractionContent {
+  flex: 1;
+}
+
+.attractionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.attractionName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.attractionDistance {
+  background: #e8f4fd;
+  color: #1976d2;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.attractionType {
+  display: inline-block;
+  background: #f0f9ff;
+  color: #0369a1;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.attractionDescription {
+  color: #5a6c7d;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .attractionsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .attractionCard {
+    padding: 1.2rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .attractionIcon {
+    margin: 0 auto 1rem auto;
+  }
+  
+  .attractionHeader {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .attractionName {
+    text-align: center;
+  }
+}
