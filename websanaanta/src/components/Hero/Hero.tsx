@@ -1,16 +1,29 @@
 'use client';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import BookingCalendar from '@/components/BookingCalendar/BookingCalendar';
 import styles from './Hero.module.css';
 
 export default function Hero() {
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!bgRef.current) return;
+      const y = window.scrollY * 0.15; // subtle parallax factor
+      bgRef.current.style.transform = `translateY(${y}px)`;
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <section className={styles.hero}>
       {/* Background Image (single) */}
-      <div className={`${styles.slideBackground} ${styles.active}`}>
+      <div ref={bgRef} className={`${styles.slideBackground} ${styles.active}`}>
         <Image
-          src={'/hero3.jpeg'}
+          src={'/hero2.jpeg'}
           alt={'Casa Santa Ana - Imagen principal'}
           fill
           priority

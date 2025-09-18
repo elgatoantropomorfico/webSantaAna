@@ -8,24 +8,39 @@ interface Testimonial {
   comment: string;
   avatar: string;
   date: string;
+  role?: string;
 }
 
 const testimonials: Testimonial[] = [
   {
     name: 'María González',
+    role: 'CEO de Agencia Creativa',
     location: 'Madrid, España',
     rating: 5,
-    comment: 'Una experiencia increíble. La casa superó todas nuestras expectativas. Las vistas son espectaculares y la atención al detalle es perfecta. Definitivamente volveremos.',
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+    comment:
+      'Una experiencia increíble. La casa superó todas nuestras expectativas. Las vistas son espectaculares y la atención al detalle es perfecta.',
+    avatar: '/hero1.jpeg',
     date: 'Marzo 2024'
   },
   {
-    name: 'Carlos Rodríguez',
-    location: 'Buenos Aires, Argentina',
+    name: 'Parvez Hossein',
+    role: 'COO de Startup',
+    location: 'Corrientes, Argentina',
     rating: 5,
-    comment: 'Perfecto para desconectar del estrés de la ciudad. La piscina privada y la tranquilidad del lugar hicieron que nuestras vacaciones fueran inolvidables.',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-    date: 'Febrero 2024'
+    comment:
+      'Servicio impecable y ubicación soñada. Ideal para venir en familia y descansar rodeados de naturaleza.',
+    avatar: '/hero2.jpeg',
+    date: 'Abril 2024'
+  },
+  {
+    name: 'Shoikot Hasan',
+    role: 'Emprendedor',
+    location: 'Asunción, Paraguay',
+    rating: 5,
+    comment:
+      'La comodidad de la casa y los detalles hacen la diferencia. ¡Volveremos sin dudas!',
+    avatar: '/hero3.jpeg',
+    date: 'Mayo 2024'
   }
 ];
 
@@ -49,31 +64,21 @@ export default function Testimonials() {
         </div>
 
         <div className={styles.testimonialsGrid}>
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className={styles.testimonialCard}>
-              <div className={styles.testimonialHeader}>
-                <div className={styles.avatarContainer}>
-                  <Image
-                    src={testimonial.avatar}
-                    alt={`Avatar de ${testimonial.name}`}
-                    width={60}
-                    height={60}
-                    className={styles.avatar}
-                  />
-                </div>
-                <div className={styles.guestInfo}>
-                  <h3 className={styles.guestName}>{testimonial.name}</h3>
-                  <p className={styles.guestLocation}>{testimonial.location}</p>
-                  <div className={styles.rating}>
-                    {renderStars(testimonial.rating)}
-                  </div>
-                </div>
+          {testimonials.map((t, i) => (
+            <div key={i} className={`${styles.testimonialCard} ${i === 1 ? styles.featured : ''}`}>
+              {/* Floating circular avatar */}
+              <div className={styles.avatarRing}>
+                <Image src={t.avatar} alt={`Avatar de ${t.name}`} fill sizes="96px" className={styles.avatar} />
               </div>
-              
-              <p className={styles.comment}>&ldquo;{testimonial.comment}&rdquo;</p>
-              
+              {/* Stars */}
+              <div className={styles.starsRow}>{renderStars(t.rating)}</div>
+              {/* Name and role */}
+              <h3 className={styles.guestName}>{t.name}</h3>
+              {t.role && <p className={styles.role}>{t.role}</p>}
+              {/* Quote */}
+              <p className={styles.comment}>&ldquo;{t.comment}&rdquo;</p>
               <div className={styles.testimonialFooter}>
-                <span className={styles.date}>{testimonial.date}</span>
+                <span className={styles.date}>{t.location} · {t.date}</span>
               </div>
             </div>
           ))}

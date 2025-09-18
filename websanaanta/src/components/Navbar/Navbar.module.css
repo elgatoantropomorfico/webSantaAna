@@ -11,10 +11,10 @@
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+  backdrop-filter: blur(18px) saturate(120%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .container {
@@ -34,13 +34,13 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: white;
+  color: #e7eaf0;
   margin: 0;
   transition: color 0.3s ease;
 }
 
 .navbar.scrolled .logo {
-  color: #1e3a8a;
+  color: #e7eaf0;
 }
 
 .navLinks {
@@ -53,7 +53,7 @@
 }
 
 .navLink {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(231, 234, 240, 0.9);
   font-weight: 500;
   font-size: 0.95rem;
   text-decoration: none;
@@ -63,15 +63,15 @@
 }
 
 .navbar.scrolled .navLink {
-  color: rgba(30, 58, 138, 0.8);
+  color: rgba(231, 234, 240, 0.85);
 }
 
 .navLink:hover {
-  color: white;
+  color: #ffffff;
 }
 
 .navbar.scrolled .navLink:hover {
-  color: #1e3a8a;
+  color: #ffffff;
 }
 
 .navLink::after {
@@ -81,12 +81,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: white;
+  background: #ffffff;
   transition: width 0.3s ease;
 }
 
 .navbar.scrolled .navLink::after {
-  background: #1e3a8a;
+  background: #ffffff;
 }
 
 .navLink:hover::after {
@@ -100,32 +100,31 @@
 }
 
 .reserveBtn {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #ffffff;
+  color: #0b0c10;
+  border: none;
   padding: 0.75rem 1.5rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
 }
 
 .navbar.scrolled .reserveBtn {
-  background: #1e3a8a;
-  color: white;
-  border: 1px solid #1e3a8a;
+  background: #ffffff;
+  color: #0b0c10;
+  border: none;
 }
 
 .reserveBtn:hover {
-  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.45);
 }
 
 .navbar.scrolled .reserveBtn:hover {
-  background: #1e40af;
-  border-color: #1e40af;
+  background: #ffffff;
 }
 
 .menuToggle {
@@ -141,13 +140,13 @@
 .hamburger {
   width: 25px;
   height: 3px;
-  background: white;
+  background: #e7eaf0;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 .navbar.scrolled .hamburger {
-  background: #1e3a8a;
+  background: #e7eaf0;
 }
 
 /* Mobile styles */
@@ -157,8 +156,8 @@
     top: 70px;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+    backdrop-filter: blur(18px) saturate(120%);
     flex-direction: column;
     padding: 2rem 1rem;
     gap: 1.5rem;
@@ -166,7 +165,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(232, 236, 240, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .navLinksOpen {
@@ -180,7 +179,7 @@
     padding: 0.75rem 0;
     text-align: center;
     width: 100%;
-    color: #1e3a8a;
+    color: #e7eaf0;
   }
 
   .menuToggle {

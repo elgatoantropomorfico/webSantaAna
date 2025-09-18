@@ -25,7 +25,7 @@
 
 .backgroundImage {
   object-fit: cover;
-  object-position: center;
+  object-position: center 35%;
 }
 
 .overlay {
@@ -34,7 +34,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background:
+    radial-gradient(1200px 400px at 50% 0%, rgba(255,255,255,0.05), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0,0,0,0.52) 60%, rgba(0,0,0,0.72) 100%);
   z-index: 2;
 }
 
@@ -70,14 +72,14 @@
 .heroTitle {
   font-size: 3.5rem;
   font-weight: 700;
-  color: white;
+  color: #e7eaf0;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .heroSubtitle {
   font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(231, 234, 240, 0.9);
   margin-bottom: 2rem;
   line-height: 1.6;
   max-width: 600px;
@@ -92,34 +94,34 @@
 }
 
 .stat {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px) saturate(120%);
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
   font-size: 0.95rem;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #e7eaf0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-weight: 500;
 }
 
 .ctaButton {
-  background: rgba(255, 255, 255, 0.95);
-  color: #1e3a8a;
+  background: #ffffff;
+  color: #0b0c10;
   border: none;
   padding: 1.2rem 3rem;
   font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px;
+  font-weight: 700;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
 }
 
 .ctaButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-  background: white;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  background: #ffffff;
 }
 
 /* Navigation Dots */
