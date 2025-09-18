@@ -1,15 +1,22 @@
 'use client';
 import { useState } from 'react';
 import styles from './BookingCalendar.module.css';
+import {
+  Bed,
+  DoorOpen,
+  Calculator,
+  CircleDollarSign,
+  ShieldCheck,
+  ChevronDown,
+  ChevronUp,
+  Phone
+} from 'lucide-react';
 
-interface BookingCalendarProps {
-  onClose?: () => void;
-}
-
-export default function BookingCalendar({ onClose }: BookingCalendarProps) {
+export default function BookingCalendar() {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [isMinimized, setIsMinimized] = useState(false);
 
   const DAILY_RATE = 99000;
   const MAX_DAYS = 5;
@@ -178,32 +185,86 @@ Check-out: ${formatDate(endDate)}
         
       </div>
 
-      {/* Sidebar booking info for desktop */}
+     
+
+    
+
+      {/* Absolute positioned booking summary */}
       {startDate && endDate && (
-        <div className={styles.bookingInfoSidebar}>
-          <div className={styles.dateInfo}>
-            <span>Check-in: {formatDate(startDate)}</span>
-            <span>Check-out: {formatDate(endDate)}</span>
-          </div>
+        <div className={`${styles.checkoutNavbar} ${isMinimized ? styles.minimized : ''}`}>
+          <button 
+            className={styles.minimizeButton}
+            onClick={() => setIsMinimized(!isMinimized)}
+            aria-label={isMinimized ? "Expandir checkout" : "Minimizar checkout"}
+          >
+            {isMinimized ? (
+              <ChevronUp className={styles.dateIcon} />
+            ) : (
+              <ChevronDown className={styles.dateIcon} />
+            )}
+          </button>
           
-          <div className={styles.priceInfo}>
-            <div className={styles.calculation}>
-              <span>{getDayCount()} días × {formatCurrency(DAILY_RATE)}</span>
+          {!isMinimized && (
+            <div className={styles.checkoutContent}>
+              <div className={styles.dateRangeNavbar}>
+                <div className={styles.dateItemNavbar}>
+                  <Bed className={styles.dateIcon} />
+                  <div className={styles.dateDetails}>
+                    <span className={styles.dateLabel}>Check-in</span>
+                    <span className={styles.dateValue}>{formatDate(startDate)}</span>
+                  </div>
+                </div>
+                <div className={styles.dateItemNavbar}>
+                  <DoorOpen className={styles.dateIcon} />
+                  <div className={styles.dateDetails}>
+                    <span className={styles.dateLabel}>Check-out</span>
+                    <span className={styles.dateValue}>{formatDate(endDate)}</span>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.totalSectionNavbar}>
+                <div className={styles.calculation}>
+                  <Calculator className={styles.calcIcon} />
+                  <span>{getDayCount()} días × {formatCurrency(DAILY_RATE)}</span>
+                </div>
+                <div className={styles.finalTotalNavbar}>
+                  <CircleDollarSign className={styles.moneyIcon} />
+                  <span className={styles.totalAmount}>{formatCurrency(calculateTotal())}</span>
+                </div>
+                <div className={styles.securityBadge}>
+                  <ShieldCheck className={styles.securityIcon} />
+                  <span className={styles.securityText}>Pago seguro garantizado</span>
+                </div>
+              </div>
+              <button 
+                className={styles.whatsappButtonNavbar}
+                onClick={handleWhatsAppBooking}
+              >
+                <Phone className={styles.dateIcon} /> Reservar por WhatsApp
+              </button>
             </div>
-            <div className={styles.total}>
-              Total: {formatCurrency(calculateTotal())}
+          )}
+          
+          {isMinimized && (
+            <div className={styles.minimizedContent}>
+              <div className={styles.minimizedInfo}>
+                <span className={styles.minimizedDates}>
+                  {formatDate(startDate)} - {formatDate(endDate)}
+                </span>
+                <span className={styles.minimizedTotal}>
+                  {formatCurrency(calculateTotal())}
+                </span>
+              </div>
+              <button 
+                className={styles.whatsappButtonMinimized}
+                onClick={handleWhatsAppBooking}
+              >
+                <Phone className={styles.dateIcon} /> Reservar
+              </button>
             </div>
-            <button 
-              className={styles.whatsappButton}
-              onClick={handleWhatsAppBooking}
-            >
-              📱 Reservar por WhatsApp
-            </button>
-            
-          </div>
+          )}
         </div>
       )}
-
     </div>
   );
 }

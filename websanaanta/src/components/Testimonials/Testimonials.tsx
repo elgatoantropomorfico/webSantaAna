@@ -70,7 +70,7 @@ export default function Testimonials() {
                 </div>
               </div>
               
-              <p className={styles.comment}>"{testimonial.comment}"</p>
+              <p className={styles.comment}>&ldquo;{testimonial.comment}&rdquo;</p>
               
               <div className={styles.testimonialFooter}>
                 <span className={styles.date}>{testimonial.date}</span>
